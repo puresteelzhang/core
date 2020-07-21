@@ -102,6 +102,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a file over the top of an existing folder
     Given using <dav_version> DAV path
     And user "Alice" has created folder "FOLDER/sample-folder"
@@ -115,6 +116,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a folder over the top of an existing file
     Given using <dav_version> DAV path
     And user "Alice" has created folder "FOLDER/sample-folder"
@@ -127,6 +129,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a folder into another folder at different level
     Given using <dav_version> DAV path
     And user "Alice" has created folder "FOLDER/second-level-folder"
@@ -143,6 +146,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a file into a folder at different level
     Given using <dav_version> DAV path
     And user "Alice" has created folder "FOLDER/second-level-folder"
@@ -161,6 +165,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a file into a file at different level
     Given using <dav_version> DAV path
     And user "Alice" has uploaded file with content "file at second level" to "FOLDER/second-level-file.txt"
@@ -177,7 +182,7 @@ Feature: copy file
       | dav_version |
       | old         |
       | new         |
-
+  @skipOnOcis @issue-ocis-reva-387
   Scenario Outline: copy a folder into a file at different level
     Given using <dav_version> DAV path
     And user "Alice" has created folder "FOLDER/second-level-folder"
@@ -196,6 +201,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a file over the top of an existing folder received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -205,13 +211,14 @@ Feature: copy file
     When user "Alice" copies file "/textfile1.txt" to "/BRIAN-Folder" using the WebDAV API
     Then the HTTP status code should be "204"
     And the content of file "/BRIAN-Folder" for user "Alice" should be "ownCloud test text file 1"
-    And as "Alice" folder "/BRIAN-Folder/sample-folder/sample-folder" should not exist
+    And as "Alice" folder "/BRIAN-Folder/sample-folder" should not exist
     And as "Alice" file "/textfile1.txt" should exist
     Examples:
       | dav_version |
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a folder over the top of an existing file received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -227,6 +234,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a folder into another folder at different level which is received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -246,6 +254,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a file into a folder at different level received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -267,6 +276,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a file into a file at different level received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -287,6 +297,7 @@ Feature: copy file
       | old         |
       | new         |
 
+  @skipOnOcis @issue-ocis-reva-243 @issue-ocis-reva-387
   Scenario Outline: copy a folder into a file at different level received as a user share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -307,7 +318,7 @@ Feature: copy file
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a file over the top of an existing folder received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -320,14 +331,14 @@ Feature: copy file
     When user "Alice" copies file "/textfile1.txt" to "/BRIAN-Folder" using the WebDAV API
     Then the HTTP status code should be "204"
     And the content of file "/BRIAN-Folder" for user "Alice" should be "ownCloud test text file 1"
-    And as "Alice" folder "/BRIAN-Folder/sample-folder/sample-folder" should not exist
+    And as "Alice" folder "/BRIAN-Folder/sample-folder" should not exist
     And as "Alice" file "/textfile1.txt" should exist
     Examples:
       | dav_version |
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a folder over the top of an existing file received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -346,7 +357,7 @@ Feature: copy file
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a folder into another folder at different level which is received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -369,7 +380,7 @@ Feature: copy file
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a file into a folder at different level received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -394,7 +405,7 @@ Feature: copy file
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a file into a file at different level received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
@@ -418,7 +429,7 @@ Feature: copy file
       | old         |
       | new         |
 
-  @skipOnOcis @issue-ocis-reva-34
+  @skipOnOcis @issue-ocis-reva-34 @issue-ocis-reva-387
   Scenario Outline: copy a folder into a file at different level received as a group share
     Given using <dav_version> DAV path
     And user "Brian" has been created with default attributes and without skeleton files
